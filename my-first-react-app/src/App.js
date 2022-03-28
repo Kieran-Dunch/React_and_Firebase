@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useState } from 'react'
 
 function App() {
 
-  let name = 'mario'
-const handleClick = () => {
-  name = 'luigi'
-}
+  let [name, setName] = useState('mario')
+
+  const handleClick = () => {
+    setName('luigi')
+  }
 
   return (
     <div className="App">
