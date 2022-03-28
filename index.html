@@ -20,9 +20,16 @@
   <!-- React component -->
   <script type="text/babel">
     const Banner = () => {
+      const title = "Welcome to my website"
+      const subtitle = "This is a website for learning React."
+      const address = "netninja.dev"
+
       return (
-      <div>
-        <p>banner</p>
+      <div className="banner">
+        <h2>{title.toUpperCase()}</h2>
+        <p>{subtitle}</p>
+        <p>Today's date is: {new Date().toDateString()}</p>
+        <p>Random number: {Math.random()}</p>
       </div>
       )
     }
