@@ -1,5 +1,6 @@
 import './App.css'
 import { useState } from 'react'
+import Title from './components/Title'
 
 function App() {
   const [showEvents, setShowEvents] = useState(true)
@@ -8,6 +9,7 @@ function App() {
     {title: "Bowser's Live stream", id: 2},
     {title: "race on moo moo farm", id: 3}
   ])
+  const subtitle = "All the latest events in Mario Kingdom"
 
   const handleClick = (id) => {
     setEvents((prevEvents) => {
@@ -19,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      <Title title="Mario Kingdom Events" subtitle={subtitle} />
       {showEvents &&(
       <div>
         <button onClick={() => setShowEvents(false)}>Hide events</button>
