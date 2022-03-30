@@ -48,7 +48,7 @@ function App() {
       <div>
         <button onClick={handleOpen}>Open</button>
       </div>
-      {showModal && <Modal handleClose={handleClose}>
+      {showModal && <Modal handleClose={handleClose} isSalesModal={false}>
         <h2>This is a modal!</h2>
         <p>Use the code STOP in checkout?</p>
       </Modal>}
