@@ -1,7 +1,7 @@
 import './NewEventForm.css'
 import {useState} from 'react'
 
-export default function NewEventForm() {
+export default function NewEventForm(props) {
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
 
@@ -10,12 +10,21 @@ export default function NewEventForm() {
     setTitle('')
     setDate('')
   }
-  // const handleChange = (e) => {
-  //   setTitle(e.target.value)
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const event = {
+      title: title,
+      date: date,
+      id: Math.floor(Math.random() * 10000)
+    }
+    console.log(event)
+    props.addEvent(event)
+    resetForm()
+  }
 
   return (
-    <form className="new-event-form">
+    <form className="new-event-form" onSubmit={handleSubmit}>
       <label>
         <span>Event Title:</span>
         <input
@@ -33,9 +42,6 @@ export default function NewEventForm() {
         />
       </label>
       <button>Submit</button>
-      <p>Title - {title}</p>
-      <p>Date - {date}</p>
-      <p onClick={resetForm}>reset the form</p>
     </form>
   )
 }
