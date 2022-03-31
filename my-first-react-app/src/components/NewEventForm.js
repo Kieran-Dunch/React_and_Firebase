@@ -4,11 +4,13 @@ import {useState} from 'react'
 export default function NewEventForm(props) {
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
+  const [location, setLocation] = useState('Manchester')
 
 
   const resetForm = () => {
     setTitle('')
     setDate('')
+    setLocation('manchester')
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -16,6 +18,7 @@ export default function NewEventForm(props) {
     const event = {
       title: title,
       date: date,
+      location: location,
       id: Math.floor(Math.random() * 10000)
     }
     console.log(event)
@@ -40,6 +43,14 @@ export default function NewEventForm(props) {
           onChange={(e) => setDate(e.target.value)}
           value={date}
         />
+      </label>
+      <label>
+      <span>Event Location:</span>
+      <select onChange={(e) => { setLocation(e.target.value)}}>
+        <option value="manchester">Manchester</option>
+        <option value="london">London</option>
+        <option value="cardiff">Cardiff</option>
+      </select>
       </label>
       <button>Submit</button>
     </form>

@@ -6,6 +6,8 @@ export default function EventList(props) {
       {props.events.map((event, index) => (
         <div className={styles.card} key={event.id}>
           <h2>{index} - {event.title}!</h2>
+          <p>{event.location}</p>
+          <p>{event.date}</p>
           <button onClick={() => props.handleClick(event.id)}>Delete Event</button>
         </div>
       ))}
