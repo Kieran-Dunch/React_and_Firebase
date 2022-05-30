@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useFirestore } from "../../hooks/useFirestore";
 
 
-export default function Sidebar() {
+export default function Sidebar({ uid }) {
   const [name, setName] = useState("")
   const [amount, setAmount] = useState("")
+  const { addDocument, response } = useFirestore('transactions')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({
+    addDocument({
+      uid,
       name,
       amount
     })
   }
+
+  useEffect(() => {
+    if (response.success) {
+      setName('')
+      setAmount('')
+    }
+  }, [response.success])
 
   return (
     <>
@@ -29,7 +39,7 @@ export default function Sidebar() {
         <label>
           <span>Amount:</span>
           <input
-            type="text"
+            type="number"
             required
             onChange={(e) => setAmount(e.target.value)}
             value={amount}
