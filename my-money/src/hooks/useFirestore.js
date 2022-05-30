@@ -9,7 +9,7 @@ let initialState = {
 }
 
 
-const useFirestoreReducer = (state, action) => {
+const firestoreReducer = (state, action) => {
   switch (action.type) {
 
   default:
@@ -22,15 +22,16 @@ export const useFirestore = (collection) => {
   const [response, dispatch] = useReducer(firestoreReducer, initialState)
   const [ isCancelled, setIsCancelled] = useState(false)
 
-  // collection ref
+  // collection reference
   const ref = projectFirestore.collection(collection)
 
   // add a document
   const addDocument = (doc) => {
 
   }
-
+  // delete document
   const deleteDocument = (id) => {
+
   }
 
   useEffect(() => {
