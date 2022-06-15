@@ -28,7 +28,11 @@ function App() {
     setCards(shuffledCards)
   }
 
-  console.log(cards, turns)
+  // handle a choice
+
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
 
   return (
     <div className="App">
@@ -39,6 +43,7 @@ function App() {
         <SingleCard
           key={card.id}
           card={card}
+          handleChoice={handleChoice}
         />
       ))}
     </div>
