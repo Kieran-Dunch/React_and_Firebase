@@ -21,9 +21,9 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about/*" element={<About />} />
           <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/products/*" element={<Products />} />
           <Route path='/redirect' element={<Navigate to='/about' />} />
           <Route path="/checkout" element={cartIsEmpty ? <Navigate to="/products" /> : <p>Checkout</p>} />
         </Routes>

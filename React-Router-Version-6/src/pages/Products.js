@@ -27,9 +27,9 @@ export default function Products() {
       <div className="products">
         {[8, 9, 10, 11].map(p => (
           <div key={p}>
-            {/* <Link to={`/products/${p}`}>
+            <Link to={`/products/${p}`}>
               <img src="https://via.placeholder.com/250x150" alt="product" />
-            </Link> */}
+            </Link>
           </div>
         ))}
       </div>
